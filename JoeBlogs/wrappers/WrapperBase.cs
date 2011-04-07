@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using JoeBlogs.XmlRpcInterfaces;
-using CookComputing.XmlRpc;
-using System;
 
 namespace JoeBlogs
 {
