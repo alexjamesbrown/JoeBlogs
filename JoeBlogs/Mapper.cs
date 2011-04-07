@@ -1,6 +1,5 @@
 ﻿using System;
 using JoeBlogs;
-using JoeBlogs;
 using System.Reflection;
 using System.Linq;
 
@@ -292,11 +291,18 @@ namespace JoeBlogs
                 return result;
             }
 
-
             internal static Post Post(XmlRpcPost input)
             {
-                throw new System.NotImplementedException();
+                return new Post
+                {
+                    Body = input.description,
+                    Categories = input.categories,
+                    DateCreated = input.dateCreated,
+                    Tags = input.mt_keywords,
+                    Title = input.title
+                };
             }
+
             internal static Page Page(XmlRpcPage input)
             {
                 var result = new Page()

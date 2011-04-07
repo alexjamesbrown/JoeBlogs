@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace JoeBlogs.Tests
+namespace JoeBlogs.Tests.Mapping
 {
     [TestFixture]
-    public class MappingTests
+    public class MapFrom
     {
         [Test]
         public void can_map_from_author_to_xmlRpcAuthor()
@@ -24,6 +24,25 @@ namespace JoeBlogs.Tests
         }
 
         [Test]
+        public void can_map_from_categoryNew_to_xmlRpcCategoryNew()
+        {
+            var categoryNew = new CategoryNew
+            {
+                Name = "Test Category Name",
+                Description = "This is a test category",
+                ParentCategoryID = 1,
+                Slug = "a-slug"
+            };
+
+            var result = Map.From.CategoryNew(categoryNew);
+
+            Assert.AreEqual(categoryNew.Name, result.name);
+            Assert.AreEqual(categoryNew.Description, result.description);
+            Assert.AreEqual(categoryNew.ParentCategoryID.ToString(), result.parentId.ToString());
+            Assert.AreEqual(categoryNew.Slug, result.slug);
+        }
+
+        [Test]
         public void can_map_from_category_to_xmlRpcCategory()
         {
             var category = new Category
@@ -32,18 +51,16 @@ namespace JoeBlogs.Tests
                 Description = "This is a test category",
                 HtmlUrl = "www.test.com/cat",
                 ParentCategoryID = 1,
-                RSSUrl = "www.testrssurl.com",
+                RSSUrl = "www.testrssurl.com"
             };
 
             var result = Map.From.Category(category);
 
-            //Assert.AreEqual(category.CategoryID.ToString(), result.categoryId);
-            Assert.AreEqual(category.ParentCategoryID.ToString(), result.parentId);
             Assert.AreEqual(category.Name, result.categoryName);
             Assert.AreEqual(category.Description, result.description);
             Assert.AreEqual(category.HtmlUrl, result.htmlUrl);
+            Assert.AreEqual(category.ParentCategoryID.ToString(), result.parentId);
             Assert.AreEqual(category.RSSUrl, result.rssUrl);
-            Assert.AreEqual(category.Name, result.title);
         }
 
         [Test]
@@ -108,8 +125,7 @@ namespace JoeBlogs.Tests
         }
     }
 
-    [TestFixture]
-    public class MappingToTests
+    public class MapTo
     {
         [Test]
         public void can_map_to_author_from_xmlRpcAuthor()
@@ -180,7 +196,7 @@ namespace JoeBlogs.Tests
     }
 
     [TestFixture]
-    public class x
+    public class General
     {
         [Test]
         public void trying_to_map_a_string_that_doesnt_correspond_to_enum_val_throws_exception()
