@@ -47,7 +47,7 @@
     <Compile Include="..\JoeBlogs\Mapper.cs">
       <Link>Mapper.cs</Link>
     </Compile>
-    <Compile Include="MapTests.cs" />
+    <Compile Include="Mapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
