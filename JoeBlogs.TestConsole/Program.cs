@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using JoeBlogs;
+﻿using JoeBlogs;
 
 class Program
 {
-    static WordPressWrapper _wpWrapper;
+    static IWordPressWrapper _wpWrapper;
 
     static void Main(string[] args)
     {

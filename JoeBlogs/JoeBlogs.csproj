@@ -82,6 +82,8 @@
     <Compile Include="classes\UserBlog.cs" />
     <Compile Include="classes\UserInfo.cs" />
     <Compile Include="Mapper.cs" />
+    <Compile Include="wrappers\IMetaWeblogWrapper.cs" />
+    <Compile Include="wrappers\IWordPressWrapper.cs" />
     <Compile Include="wrappers\MetaWeblogWrapper.cs" />
     <Compile Include="wrappers\WrapperBase.cs" />
     <Compile Include="xmlRpcInterfaces\IWordPressXmlRpc.cs" />

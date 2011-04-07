@@ -10,7 +10,7 @@ namespace JoeBlogs
     ///Implements the MetaWeblog API
     ///http://msdn.microsoft.com/en-us/library/bb259697.aspx
     /// </summary>
-    public class MetaWeblogWrapper : BaseWrapper
+    public class MetaWeblogWrapper : BaseWrapper, IMetaWeblogWrapper
     {
         protected IMetaWeblogXmlRpc _wrapper;
 

@@ -8,7 +8,7 @@ namespace JoeBlogs
     /// <summary>
     /// Represents a wrapper for use with Wordpress blogs.
     /// </summary>
-    public class WordPressWrapper : MetaWeblogWrapper
+    public class WordPressWrapper : MetaWeblogWrapper, IWordPressWrapper
     {
         new protected IWordPressXmlRpc _wrapper;
 
