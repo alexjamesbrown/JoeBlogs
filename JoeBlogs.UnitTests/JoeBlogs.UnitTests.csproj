@@ -49,6 +49,7 @@
     </Compile>
     <Compile Include="Mapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wrappers\WordpressWrapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JoeBlogs\JoeBlogs.csproj">

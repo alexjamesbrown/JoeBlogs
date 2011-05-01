@@ -376,9 +376,12 @@ namespace JoeBlogs
                 };
             }
 
-            internal static MediaObjectInfo MediaObjectInfo(XmlRpcMediaObjectInfo result)
+            internal static MediaObjectInfo MediaObjectInfo(XmlRpcMediaObjectInfo input)
             {
-                throw new NotImplementedException();
+                return new MediaObjectInfo
+                {
+                    URL = input.url
+                };
             }
 
             internal static CommentCount CommentCount(XmlRpcCommentCount input)
