@@ -439,9 +439,17 @@ namespace JoeBlogs
 
             internal static UserInfo UserInfo(XmlRpcUserInfo input)
             {
-                throw new NotImplementedException();
+                return new UserInfo
+                {
+                    BlogID = input.blogId,
+                    BlogName = input.blogName,
+                    Email = input.email,
+                    FirstName = input.firstname,
+                    LastName = input.lastname,
+                    Nickname = input.nickname,
+                    URL = input.url
+                };
             }
-
         }
     }
 }
