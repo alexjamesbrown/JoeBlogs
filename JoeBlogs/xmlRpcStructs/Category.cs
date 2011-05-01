@@ -24,7 +24,7 @@ namespace JoeBlogs
     {
         public string name;
         public string slug;
-        public int parent_d;
+        public int parent_id;
         public string description;
     }
 

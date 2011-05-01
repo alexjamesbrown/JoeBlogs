@@ -23,7 +23,7 @@ namespace JoeBlogs
                 return new XmlRpcCategoryNew
                 {
                     description = input.Description,
-                    parentId = input.ParentCategoryID,
+                    parent_id = input.ParentCategoryID,
                     name = input.Name,
                     slug = input.Slug
                 };
@@ -131,7 +131,7 @@ namespace JoeBlogs
             {
                 return new XmlRpcMediaObjectInfo
                 {
-                    url = input.Url
+                    url = input.URL
                 };
             }
             internal static XmlRpcOption Option(Option input)
@@ -233,7 +233,7 @@ namespace JoeBlogs
                 {
                     description = input.Description,
                     name = input.Name,
-                    parentId = input.ParentCategoryID,
+                    parent_id = input.ParentCategoryID,
                     slug = input.Slug
                 };
             }
