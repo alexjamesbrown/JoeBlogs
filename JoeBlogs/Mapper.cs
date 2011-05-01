@@ -113,9 +113,9 @@ namespace JoeBlogs
             {
                 return new XmlRpcFile
                 {
-                    file = input.file,
-                    type = input.type,
-                    url = input.url
+                    file = input.FileContent,
+                    type = input.Type,
+                    url = input.URL
                 };
             }
             internal static XmlRpcMediaObject MediaObject(MediaObject input)
@@ -368,7 +368,12 @@ namespace JoeBlogs
 
             internal static File File(XmlRpcFile input)
             {
-                throw new NotImplementedException();
+                return new File
+                {
+                    FileContent = input.file,
+                    Type = input.type,
+                    URL = input.url
+                };
             }
 
             internal static MediaObjectInfo MediaObjectInfo(XmlRpcMediaObjectInfo result)

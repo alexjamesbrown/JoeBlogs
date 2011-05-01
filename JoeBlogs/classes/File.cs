@@ -2,10 +2,10 @@
 {
 	public class File
 	{
-        public string file { get; set; }
-        public string url { get; set; }
+        public string FileContent { get; set; }
+        public string URL { get; set; }
 
         //todo: make this an enum..?
-        public string type { get; set; }
+        public string Type { get; set; }
 	}
 }
