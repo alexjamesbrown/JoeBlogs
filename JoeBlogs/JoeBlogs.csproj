@@ -81,6 +81,9 @@
     <Compile Include="classes\TagInfo.cs" />
     <Compile Include="classes\UserBlog.cs" />
     <Compile Include="classes\UserInfo.cs" />
+    <Compile Include="helpers\EnumsUtility.cs" />
+    <Compile Include="helpers\ImagesUtility.cs" />
+    <Compile Include="helpers\StringExtensionMethods.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="wrappers\IMetaWeblogWrapper.cs" />
     <Compile Include="wrappers\IWordPressWrapper.cs" />
@@ -91,7 +94,6 @@
     </Compile>
     <Compile Include="xmlRpcInterfaces\IMetaWeblogXmlRpc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility.cs" />
     <Compile Include="xmlRpcStructs\Author.cs" />
     <Compile Include="xmlRpcStructs\Category.cs" />
     <Compile Include="xmlRpcStructs\Comment.cs" />

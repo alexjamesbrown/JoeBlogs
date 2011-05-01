@@ -290,7 +290,7 @@ namespace JoeBlogs
                     PostID = Convert.ToInt16(input.post_id),
                     PostTitle = input.post_title,
                     UserID = Convert.ToInt16(input.user_id),
-                    Status = EnumUtility.GetCommentStatus(input.status)
+                    Status = EnumsUtility.GetCommentStatus(input.status)
                 };
 
                 SetPrivateFieldValue<CommentResponse>("CommentID", input.comment_id, result);
