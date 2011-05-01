@@ -7,6 +7,14 @@ namespace JoeBlogs
 {
     internal static class Map
     {
+        static void SetPrivateFieldValue<T>(string fieldName, object value, T obj)
+        {
+            var propertyInfo = typeof(T)
+                .GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+
+            propertyInfo.SetValue(obj, value);
+        }
+
         internal static class From
         {
             internal static XmlRpcAuthor Author(Author input)
@@ -262,7 +270,7 @@ namespace JoeBlogs
                     Content = input.content,
                 };
 
-                MapUtility.SetPrivateFieldValue<Comment>("CommentParentID", input.comment_parent, result);
+                SetPrivateFieldValue<Comment>("CommentParentID", input.comment_parent, result);
 
                 return result;
             }
@@ -285,8 +293,8 @@ namespace JoeBlogs
                     Status = EnumUtility.GetCommentStatus(input.status)
                 };
 
-                MapUtility.SetPrivateFieldValue<CommentResponse>("CommentID", input.comment_id, result);
-                MapUtility.SetPrivateFieldValue<Comment>("CommentParentID", Convert.ToInt16(input.parent), result);
+                SetPrivateFieldValue<CommentResponse>("CommentID", input.comment_id, result);
+                SetPrivateFieldValue<Comment>("CommentParentID", Convert.ToInt16(input.parent), result);
 
                 return result;
             }
@@ -321,7 +329,7 @@ namespace JoeBlogs
                     Title = input.title
                 };
 
-                MapUtility.SetPrivateFieldValue<Page>("_pageID", input.page_id, result);
+                SetPrivateFieldValue<Page>("_pageID", input.page_id, result);
 
                 return result;
             }
@@ -336,7 +344,7 @@ namespace JoeBlogs
                     RSSUrl = input.rssUrl,
                 };
 
-                MapUtility.SetPrivateFieldValue<Category>("_categoryID", Convert.ToInt16(input.categoryId), result);
+                SetPrivateFieldValue<Category>("_categoryID", Convert.ToInt16(input.categoryId), result);
 
                 return result;
             }
@@ -347,7 +355,7 @@ namespace JoeBlogs
                     Name = input.name,
                 };
 
-                MapUtility.SetPrivateFieldValue<CategoryMin>("_categoryID", Convert.ToInt16(input.category_id), result);
+                SetPrivateFieldValue<CategoryMin>("_categoryID", Convert.ToInt16(input.category_id), result);
 
                 return result;
             }
@@ -361,7 +369,7 @@ namespace JoeBlogs
                     URL = input.url
                 };
 
-                MapUtility.SetPrivateFieldValue<UserBlog>("_userBlogID", input.blogId, result);
+                SetPrivateFieldValue<UserBlog>("_userBlogID", input.blogId, result);
 
                 return result;
             }
