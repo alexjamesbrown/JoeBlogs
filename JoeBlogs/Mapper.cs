@@ -386,7 +386,13 @@ namespace JoeBlogs
 
             internal static CommentCount CommentCount(XmlRpcCommentCount input)
             {
-                throw new NotImplementedException();
+                return new CommentCount
+                {
+                    Approved = input.approved,
+                    AwaitingModeration = input.awaiting_moderation,
+                    Spam = input.spam,
+                    TotalComments = input.total_comments
+                };
             }
 
             internal static Option Option(XmlRpcOption input)
