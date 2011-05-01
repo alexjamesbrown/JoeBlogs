@@ -397,7 +397,11 @@ namespace JoeBlogs
 
             internal static Option Option(XmlRpcOption input)
             {
-                throw new NotImplementedException();
+                return new Option
+                {
+                    Key = input.option,
+                    Value = input.value
+                };
             }
 
             internal static PageMin PageMin(XmlRpcPageMin input)
