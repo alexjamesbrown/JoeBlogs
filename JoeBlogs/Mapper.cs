@@ -430,7 +430,11 @@ namespace JoeBlogs
 
             internal static PageTemplate PageTemplate(XmlRpcPageTemplate input)
             {
-                throw new NotImplementedException();
+                return new PageTemplate
+                {
+                    Description = input.description,
+                    Name = input.name
+                };
             }
 
             internal static UserInfo UserInfo(XmlRpcUserInfo input)
