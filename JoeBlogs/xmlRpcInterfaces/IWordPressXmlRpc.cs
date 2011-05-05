@@ -102,7 +102,7 @@ namespace JoeBlogs.XmlRpcInterfaces
         XmlRpcFile UploadFile(int blogId, string username, string password, XmlRpcData data);
 
         [XmlRpcMethod("wp.getComment")]
-        XmlRpcCommentResponse GetComment(int blogId, string username, string password, string commentId);
+        XmlRpcComment GetComment(int blogId, string username, string password, string commentId);
 
         [XmlRpcMethod("wp.getComments")]
         XmlRpcComment[] GetComments(int blogId, string username, string password, XmlRpcCommentFilter filter);

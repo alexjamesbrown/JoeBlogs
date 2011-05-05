@@ -1,4 +1,5 @@
 ﻿
+using CookComputing.XmlRpc;
 namespace JoeBlogs
 {
     public class Author

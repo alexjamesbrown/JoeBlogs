@@ -156,7 +156,7 @@ namespace JoeBlogs
         /// </summary>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public bool EditComment(Comment comment)
+        public bool EditComment(NewComment comment)
         {
             var xmlRpcComment = Map.From.Comment(comment);
             return _wrapper.EditComment(this.BlogID, Username, Password, xmlRpcComment);
@@ -168,7 +168,7 @@ namespace JoeBlogs
         /// <param name="postid"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public string NewComment(int postid, Comment comment)
+        public string NewComment(int postid, NewComment comment)
         {
             var xmlRpcComment = Map.From.Comment(comment);
             var result = _wrapper.NewComment(this.BlogID, Username, Password, Convert.ToString(postid), xmlRpcComment);
@@ -366,10 +366,10 @@ namespace JoeBlogs
         /// </summary>
         /// <param name="comment_id"></param>
         /// <returns></returns>
-        public CommentResponse GetComment(string comment_id)
+        public Comment GetComment(string comment_id)
         {
             var result = _wrapper.GetComment(this.BlogID, Username, Password, comment_id);
-            return Map.To.CommentResponse(result);
+            return Map.To.Comment(result);
         }
 
         /// <summary>
@@ -394,6 +394,7 @@ namespace JoeBlogs
             };
 
             var result = new List<Comment>();
+
             var xmlRpcResult = _wrapper.GetComments(this.BlogID, Username, Password, filter);
 
             foreach (var r in xmlRpcResult)

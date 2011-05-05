@@ -70,7 +70,7 @@ class Program
         //create a new post
         var newPostForComment = createNewPost();
 
-        var comment = new Comment(newPostForComment)
+        var comment = new NewComment(newPostForComment)
         {
             AuthorEmail = "alex@test.com",
             AuthorName = "Joe Blogs",

@@ -68,7 +68,7 @@ namespace JoeBlogs.Tests.Mapping
         {
             var commentStatus = CommentStatus.Hold;
 
-            var comment = new Comment(123, 112233)
+            var comment = new NewComment(123, 112233)
             {
                 AuthorEmail = "test@test.com",
                 AuthorName = "Joe Blogs",

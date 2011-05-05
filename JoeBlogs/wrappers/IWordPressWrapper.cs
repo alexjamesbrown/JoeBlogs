@@ -7,11 +7,10 @@ namespace JoeBlogs
         bool DeleteCategory(int categoryID);
         bool DeleteComment(string comment_id);
         bool DeletePage(string pageID);
-        bool EditComment(Comment comment);
+        bool EditComment(NewComment comment);
         bool EditPage(int pageID, Page editedPage);
         IEnumerable<Author> GetAuthors();
-        IEnumerable<Category> GetCategories();
-        CommentResponse GetComment(string comment_id);
+        Comment GetComment(string comment_id);
         CommentCount GetCommentCount(string post_id);
         IEnumerable<Comment> GetComments(int post_id, string status, int number, int offset);
         IEnumerable<string> GetCommentStatusList(string post_id);
@@ -23,10 +22,9 @@ namespace JoeBlogs
         IEnumerable<PageTemplate> GetPageTemplates();
         IEnumerable<string> GetPostStatusList();
         IEnumerable<Tag> GetTags();
-        IEnumerable<UserBlog> GetUserBlogs();
         int NewCategory(CategoryNew category);
         int NewCategory(string name, string slug, int parentId, string description);
-        string NewComment(int postid, Comment comment);
+        string NewComment(int postid, NewComment comment);
         string NewPage(Page page, bool publish);
         IEnumerable<Option> SetOptions();
         IEnumerable<CategoryMin> SuggestCategories(string startsWith, int max_results);

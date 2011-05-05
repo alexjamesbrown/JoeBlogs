@@ -49,35 +49,37 @@ namespace JoeBlogs
                     parentId = Convert.ToString(input.ParentCategoryID),
                 };
             }
-            internal static XmlRpcComment Comment(Comment input)
+
+            internal static XmlRpcNewComment NewComment(NewComment input)
             {
-                return new XmlRpcComment
+                return new XmlRpcNewComment
                 {
                     author = input.AuthorName,
                     author_email = input.AuthorEmail,
                     author_url = input.AuthorUrl,
-                    comment_parent = input.CommentParentID,
+                    comment_parent = input.ParentCommentID.Value,
                     content = input.Content,
                     post_id = input.PostID
                 };
             }
-            //internal static XmlRpcCommentResponse CommentResponse(CommentResponse input)
-            //{
-            //    return new XmlRpcCommentResponse
-            //                    {
-            //                        author = input.AuthorName,
-            //                        author_email = input.AuthorEmail,
-            //                        author_url = input.AuthorUrl,
-            //                        author_ip=input.AuthorIP,
-            //                        parent = Convert.ToString(input.CommentParentID),
-            //                        content=input.Content,
-            //                        comment_id=input.CommentID,
-            //                        dateCreated=input.DateCreated,
-            //                        link=input.Link,
-            //                        post_id=input.PostID,
-            //                        post_title=input.PostTitle,;
-            //                    };
-            //}
+
+            internal static XmlRpcComment Comment(Comment input)
+            {
+                return new XmlRpcComment
+                                {
+                                    author = input.AuthorName,
+                                    author_email = input.AuthorEmail,
+                                    author_url = input.AuthorUrl,
+                                    author_ip = input.AuthorIP,
+                                    parent = Convert.ToString(input.ParentCommentID),
+                                    content = input.Content,
+                                    comment_id = Convert.ToString(input.CommentID),
+                                    dateCreated = input.DateCreated,
+                                    link = input.Link,
+                                    post_id = Convert.ToString(input.PostID),
+                                    post_title = input.PostTitle
+                                };
+            }
             internal static XmlRpcCommentCount CommentCount(CommentCount input)
             {
                 return new XmlRpcCommentCount
@@ -260,9 +262,9 @@ namespace JoeBlogs
                 };
             }
 
-            internal static Comment Comment(XmlRpcComment input)
+            internal static NewComment NewComment(XmlRpcNewComment input)
             {
-                var result = new Comment(input.post_id)
+                var result = new NewComment(input.post_id)
                 {
                     AuthorEmail = input.author_email,
                     AuthorName = input.author,
@@ -270,31 +272,30 @@ namespace JoeBlogs
                     Content = input.content,
                 };
 
-                SetPrivateFieldValue<Comment>("CommentParentID", input.comment_parent, result);
+                SetPrivateFieldValue<NewComment>("CommentParentID", input.comment_parent, result);
 
                 return result;
             }
 
-            internal static CommentResponse CommentResponse(XmlRpcCommentResponse input)
+            internal static Comment Comment(XmlRpcComment input)
             {
-                var result = new CommentResponse
-                {
-                    AuthorEmail = input.author_email,
-                    AuthorIP = input.author_ip,
-                    AuthorName = input.author,
-                    AuthorUrl = input.author_url,
-                    CommentID = Convert.ToInt16(input.comment_id),
-                    Content = input.content,
-                    DateCreated = input.dateCreated,
-                    Link = input.link,
-                    PostID = Convert.ToInt16(input.post_id),
-                    PostTitle = input.post_title,
-                    UserID = Convert.ToInt16(input.user_id),
-                    Status = EnumsUtility.GetCommentStatus(input.status)
-                };
+                ConstructorInfo ctor = typeof(Comment).GetConstructors
+                    (BindingFlags.Instance | BindingFlags.NonPublic)[0];
 
-                SetPrivateFieldValue<CommentResponse>("CommentID", input.comment_id, result);
-                SetPrivateFieldValue<Comment>("CommentParentID", Convert.ToInt16(input.parent), result);
+                var result = (Comment)ctor.Invoke(new object[] { });
+
+                result.AuthorEmail = input.author_email;
+                result.AuthorIP = input.author_ip;
+                result.AuthorName = input.author;
+                result.AuthorUrl = input.author_url;
+                result.CommentID = Convert.ToInt16(input.comment_id);
+                result.Content = input.content;
+                result.DateCreated = input.dateCreated;
+                result.Link = input.link;
+                result.PostID = Convert.ToInt16(input.post_id);
+                result.PostTitle = input.post_title;
+                result.UserID = Convert.ToInt16(input.user_id);
+                result.Status = EnumsHelper.GetCommentStatus(input.status);
 
                 return result;
             }
