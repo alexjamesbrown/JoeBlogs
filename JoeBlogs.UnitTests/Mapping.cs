@@ -38,7 +38,7 @@ namespace JoeBlogs.Tests.Mapping
 
             Assert.AreEqual(categoryNew.Name, result.name);
             Assert.AreEqual(categoryNew.Description, result.description);
-            Assert.AreEqual(categoryNew.ParentCategoryID.ToString(), result.parentId.ToString());
+            Assert.AreEqual(categoryNew.ParentCategoryID.ToString(), result.parent_id.ToString());
             Assert.AreEqual(categoryNew.Slug, result.slug);
         }
 
@@ -68,7 +68,7 @@ namespace JoeBlogs.Tests.Mapping
         {
             var commentStatus = CommentStatus.Hold;
 
-            var comment = new NewComment(123, 112233)
+            var comment = new Comment
             {
                 AuthorEmail = "test@test.com",
                 AuthorName = "Joe Blogs",
@@ -83,7 +83,7 @@ namespace JoeBlogs.Tests.Mapping
             Assert.AreEqual(comment.AuthorUrl, result.author_url);
             Assert.AreEqual(comment.Content, result.content);
             Assert.AreEqual(comment.PostID, result.post_id);
-            Assert.AreEqual(112233, result.comment_parent);
+            Assert.AreEqual(112233, result.parent);
         }
 
         [Test]
@@ -180,9 +180,9 @@ namespace JoeBlogs.Tests.Mapping
                 author = "test author",
                 author_email = "test@test.com",
                 author_url = "www.test.com",
-                comment_parent = 0,
+                parent = "0",
                 content = "This is some test content",
-                post_id = 234,
+                post_id = "234",
             };
 
             var result = Map.To.Comment(xmlRpcComment);
@@ -190,7 +190,7 @@ namespace JoeBlogs.Tests.Mapping
             Assert.AreEqual(xmlRpcComment.author, result.AuthorName);
             Assert.AreEqual(xmlRpcComment.author_email, result.AuthorEmail);
             Assert.AreEqual(xmlRpcComment.author_url, result.AuthorUrl);
-            Assert.AreEqual(xmlRpcComment.comment_parent, result.CommentParentID);
+            Assert.AreEqual(xmlRpcComment.parent, result.ParentCommentID);
             Assert.AreEqual(xmlRpcComment.content, result.Content);
         }
     }

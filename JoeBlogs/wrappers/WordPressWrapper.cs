@@ -156,9 +156,19 @@ namespace JoeBlogs
         /// </summary>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public bool EditComment(NewComment comment)
+        public bool EditComment(string comment_id, CommentStatus status, DateTime date_created_gmt, string content, string author, string author_url, string author_email)
         {
-            var xmlRpcComment = Map.From.Comment(comment);
+            var xmlRpcComment = new XmlRpcComment
+            {
+
+                author = author,
+                author_email = author_email,
+                author_url = author_url,
+                dateCreated = date_created_gmt,
+                content = content,
+                status = EnumsHelper.GetCommentStatusName(status)
+            };
+
             return _wrapper.EditComment(this.BlogID, Username, Password, xmlRpcComment);
         }
 
@@ -168,9 +178,17 @@ namespace JoeBlogs
         /// <param name="postid"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public string NewComment(int postid, NewComment comment)
+        public string NewComment(int postid, int comment_parent, string content, string author, string author_url, string author_email)
         {
-            var xmlRpcComment = Map.From.Comment(comment);
+            var xmlRpcComment = new XmlRpcComment
+            {
+                parent = Convert.ToString(comment_parent),
+                content = content,
+                author = author,
+                author_url = author_url,
+                author_email = author_email
+            };
+
             var result = _wrapper.NewComment(this.BlogID, Username, Password, Convert.ToString(postid), xmlRpcComment);
             return Convert.ToString(result);
         }

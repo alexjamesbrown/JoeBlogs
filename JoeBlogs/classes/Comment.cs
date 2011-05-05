@@ -8,7 +8,7 @@ namespace JoeBlogs
     /// </summary>
     public class Comment
     {
-        private Comment() { }
+        public Comment() { }
 
         /// <summary>
         /// Gets or sets the date created.

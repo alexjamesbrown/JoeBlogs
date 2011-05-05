@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace JoeBlogs
 {
@@ -7,7 +8,7 @@ namespace JoeBlogs
         bool DeleteCategory(int categoryID);
         bool DeleteComment(string comment_id);
         bool DeletePage(string pageID);
-        bool EditComment(NewComment comment);
+        bool EditComment(string comment_id, CommentStatus status, DateTime date_created_gmt, string content, string author, string author_url, string author_email);
         bool EditPage(int pageID, Page editedPage);
         IEnumerable<Author> GetAuthors();
         Comment GetComment(string comment_id);
@@ -24,7 +25,7 @@ namespace JoeBlogs
         IEnumerable<Tag> GetTags();
         int NewCategory(CategoryNew category);
         int NewCategory(string name, string slug, int parentId, string description);
-        string NewComment(int postid, NewComment comment);
+        string NewComment(int postid, int comment_parent, string content, string author, string author_url, string author_email);
         string NewPage(Page page, bool publish);
         IEnumerable<Option> SetOptions();
         IEnumerable<CategoryMin> SuggestCategories(string startsWith, int max_results);

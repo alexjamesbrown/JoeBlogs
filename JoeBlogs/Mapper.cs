@@ -50,19 +50,6 @@ namespace JoeBlogs
                 };
             }
 
-            internal static XmlRpcNewComment NewComment(NewComment input)
-            {
-                return new XmlRpcNewComment
-                {
-                    author = input.AuthorName,
-                    author_email = input.AuthorEmail,
-                    author_url = input.AuthorUrl,
-                    comment_parent = input.ParentCommentID.Value,
-                    content = input.Content,
-                    post_id = input.PostID
-                };
-            }
-
             internal static XmlRpcComment Comment(Comment input)
             {
                 return new XmlRpcComment
@@ -262,21 +249,6 @@ namespace JoeBlogs
                 };
             }
 
-            internal static NewComment NewComment(XmlRpcNewComment input)
-            {
-                var result = new NewComment(input.post_id)
-                {
-                    AuthorEmail = input.author_email,
-                    AuthorName = input.author,
-                    AuthorUrl = input.author_url,
-                    Content = input.content,
-                };
-
-                SetPrivateFieldValue<NewComment>("CommentParentID", input.comment_parent, result);
-
-                return result;
-            }
-
             internal static Comment Comment(XmlRpcComment input)
             {
                 ConstructorInfo ctor = typeof(Comment).GetConstructors
@@ -334,6 +306,7 @@ namespace JoeBlogs
 
                 return result;
             }
+
             internal static Category Category(XmlRpcCategory input)
             {
                 var result = new Category()
@@ -349,6 +322,7 @@ namespace JoeBlogs
 
                 return result;
             }
+            
             internal static CategoryMin CategoryMin(XmlRpcCategoryMin input)
             {
                 var result = new CategoryMin()

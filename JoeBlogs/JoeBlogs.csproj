@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="classes\Author.cs" />
     <Compile Include="classes\Category.cs" />
-    <Compile Include="classes\NewComment.cs" />
     <Compile Include="classes\CommentCount.cs" />
     <Compile Include="classes\CommentFilter.cs" />
     <Compile Include="classes\CustomField.cs" />
@@ -100,12 +99,12 @@
     <Compile Include="xmlRpcStructs\CommentCount.cs" />
     <Compile Include="xmlRpcStructs\CommentFilter.cs" />
     <Compile Include="classes\Comment.cs" />
-    <Compile Include="xmlRpcStructs\NewComment.cs" />
     <Compile Include="xmlRpcStructs\CustomField.cs" />
     <Compile Include="xmlRpcStructs\Data.cs" />
     <Compile Include="xmlRpcStructs\File.cs" />
     <Compile Include="xmlRpcStructs\MediaObject.cs" />
     <Compile Include="xmlRpcStructs\MediaObjectInfo.cs" />
+    <Compile Include="xmlRpcStructs\NewComment.cs" />
     <Compile Include="xmlRpcStructs\Option.cs" />
     <Compile Include="xmlRpcStructs\Page.cs" />
     <Compile Include="xmlRpcStructs\PageMin.cs" />
