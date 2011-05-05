@@ -23,9 +23,8 @@ namespace JoeBlogs
         IEnumerable<PageTemplate> GetPageTemplates();
         IEnumerable<string> GetPostStatusList();
         IEnumerable<Tag> GetTags();
-        int NewCategory(CategoryNew category);
-        int NewCategory(string name, string slug, int parentId, string description);
-        string NewComment(int postid, int comment_parent, string content, string author, string author_url, string author_email);
+        int NewCategory(string description, int? parentCategoryID, string name, string slug);
+        string NewComment(int postid, int? comment_parent, string content, string author, string author_url, string author_email);
         string NewPage(Page page, bool publish);
         IEnumerable<Option> SetOptions();
         IEnumerable<CategoryMin> SuggestCategories(string startsWith, int max_results);

@@ -178,7 +178,7 @@ namespace JoeBlogs
         /// <param name="postid"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public string NewComment(int postid, int comment_parent, string content, string author, string author_url, string author_email)
+        public string NewComment(int postid, int? comment_parent, string content, string author, string author_url, string author_email)
         {
             var xmlRpcComment = new XmlRpcComment
             {
@@ -312,30 +312,18 @@ namespace JoeBlogs
         /// <summary>
         /// News the category.
         /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="slug">The slug.</param>
-        /// <param name="parentId">The parent id.</param>
-        /// <param name="description">The description.</param>
-        /// <returns></returns>
-        public int NewCategory(string name, string slug, int parentId, string description)
-        {
-            var catNew = new CategoryNew
-            {
-                Description = description,
-                Slug = slug,
-                ParentCategoryID = parentId
-            };
-
-            return NewCategory(catNew);
-        }
-        /// <summary>
-        /// News the category.
-        /// </summary>
         /// <param name="category">The category.</param>
         /// <returns></returns>
-        public int NewCategory(CategoryNew category)
+        public int NewCategory(string description, int? parentCategoryID, string name, string slug)
         {
-            return _wrapper.NewCategory(this.BlogID, Username, Password, Map.From.Category(category));
+            var x = new XmlRpcCategoryNew
+                {
+                    description = description,
+                    name = name,
+                    parent_id = parentCategoryID.Value,
+                    slug = slug
+                };
+            return _wrapper.NewCategory(this.BlogID, Username, Password, x);
         }
 
         /// <summary>

@@ -9,14 +9,6 @@ namespace JoeBlogs
         public string Name { get; set; }
     }
 
-    public class CategoryNew
-    {
-        public string Description { get; set; }
-        public int ParentCategoryID { get; set; }
-        public string Name { get; set; }
-        public string Slug { get; set; }
-    }
-
     public class Category
     {
         private int _categoryID;

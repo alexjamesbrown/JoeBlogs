@@ -45,21 +45,18 @@ class Program
 
         //get page (using the ID from the page created above)
         var page = _wpWrapper.GetPage(newpageID);
-        
+
         //todo: edit page
         #endregion
 
         #region Category
 
         //create a category
-        var category = new CategoryNew
-        {
-            Description = "This is a test description",
-            Name = "Alex Cat",
-            Slug = "testSlug"
-        };
+        var description = "This is a test description";
+        var name = "Alex Cat";
+        var slug = "testSlug";
 
-        var catID = _wpWrapper.NewCategory(category);
+        var catID = _wpWrapper.NewCategory(description, null, name, slug);
 
         var cats = _wpWrapper.GetCategories();
 
@@ -70,16 +67,13 @@ class Program
         //create a new post
         var newPostForComment = createNewPost();
 
-        var comment = new NewComment(newPostForComment)
-        {
-            AuthorEmail = "alex@test.com",
-            AuthorName = "Joe Blogs",
-            Content = "This is a bit of text for the comment",
-            AuthorUrl = "www.alexjamesbrown.com"
-        };
+        var authorEmail = "alex@test.com";
+        var authorName = "Joe Blogs";
+        var content = "This is a bit of text for the comment";
+        var authorUrl = "www.alexjamesbrown.com";
 
         //add a comment to this post
-        _wpWrapper.NewComment(newPostForComment, comment);
+        _wpWrapper.NewComment(newPostForComment, null, content, authorName, authorUrl, authorEmail);
         #endregion
     }
 

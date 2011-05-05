@@ -26,16 +26,6 @@ namespace JoeBlogs
                 content.user_login = input.LoginName;
                 return content;
             }
-            internal static XmlRpcCategoryNew Category(CategoryNew input)
-            {
-                return new XmlRpcCategoryNew
-                {
-                    description = input.Description,
-                    parent_id = input.ParentCategoryID,
-                    name = input.Name,
-                    slug = input.Slug
-                };
-            }
             internal static XmlRpcCategory Category(Category input)
             {
                 return new XmlRpcCategory
@@ -222,16 +212,6 @@ namespace JoeBlogs
                     mt_keywords = input.Tags,
                     postid = Convert.ToString(input.PostID),
                     title = input.Title
-                };
-            }
-            internal static XmlRpcCategoryNew CategoryNew(CategoryNew input)
-            {
-                return new XmlRpcCategoryNew
-                {
-                    description = input.Description,
-                    name = input.Name,
-                    parent_id = input.ParentCategoryID,
-                    slug = input.Slug
                 };
             }
         }

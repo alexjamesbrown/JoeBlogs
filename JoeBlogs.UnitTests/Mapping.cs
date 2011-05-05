@@ -24,25 +24,6 @@ namespace JoeBlogs.Tests.Mapping
         }
 
         [Test]
-        public void can_map_from_categoryNew_to_xmlRpcCategoryNew()
-        {
-            var categoryNew = new CategoryNew
-            {
-                Name = "Test Category Name",
-                Description = "This is a test category",
-                ParentCategoryID = 1,
-                Slug = "a-slug"
-            };
-
-            var result = Map.From.CategoryNew(categoryNew);
-
-            Assert.AreEqual(categoryNew.Name, result.name);
-            Assert.AreEqual(categoryNew.Description, result.description);
-            Assert.AreEqual(categoryNew.ParentCategoryID.ToString(), result.parent_id.ToString());
-            Assert.AreEqual(categoryNew.Slug, result.slug);
-        }
-
-        [Test]
         public void can_map_from_category_to_xmlRpcCategory()
         {
             var category = new Category
