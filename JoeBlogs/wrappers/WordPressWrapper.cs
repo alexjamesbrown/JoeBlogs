@@ -19,7 +19,21 @@ namespace JoeBlogs
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         public WordPressWrapper(string url, string username, string password)
-            : base(url, username, password)
+            : this(url, username, password, 0)
+        {
+            _wrapper = (IWordPressXmlRpc)XmlRpcProxyGen.Create(typeof(IWordPressXmlRpc));
+            _wrapper.Url = url;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WordPressWrapper"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="blogID">The blog ID.</param>
+        public WordPressWrapper(string url, string username, string password, int blogID)
+            : base(url, username, password, blogID)
         {
             _wrapper = (IWordPressXmlRpc)XmlRpcProxyGen.Create(typeof(IWordPressXmlRpc));
             _wrapper.Url = url;

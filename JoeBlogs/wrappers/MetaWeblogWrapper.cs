@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using CookComputing.XmlRpc;
 using JoeBlogs.XmlRpcInterfaces;
 
@@ -15,11 +14,19 @@ namespace JoeBlogs
         protected IMetaWeblogXmlRpc _wrapper;
 
         public MetaWeblogWrapper(string url, string username, string password)
-            : base(url, username, password)
+            : this(url, username, password, 0)
         {
             _wrapper = (IMetaWeblogXmlRpc)XmlRpcProxyGen.Create(typeof(IMetaWeblogXmlRpc));
             _wrapper.Url = Url;
         }
+
+        public MetaWeblogWrapper(string url, string username, string password, int blogID)
+            : base(url, username, password, blogID)
+        {
+            _wrapper = (IMetaWeblogXmlRpc)XmlRpcProxyGen.Create(typeof(IMetaWeblogXmlRpc));
+            _wrapper.Url = Url;
+        }
+
 
         /// <summary> 
         /// Posts a new entry to a blog. 
