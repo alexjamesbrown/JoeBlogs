@@ -37,7 +37,7 @@ namespace JoeBlogs
         public virtual int NewPost(Post post, bool publish)
         {
             var content = Map.From.Post(post);
-            return Convert.ToInt16(_wrapper.NewPost(this.BlogID, Username, Password, content, publish));
+            return Convert.ToInt32(_wrapper.NewPost(this.BlogID, Username, Password, content, publish));
         }
 
         public virtual bool EditPost(int postID, Post content, bool publish)
