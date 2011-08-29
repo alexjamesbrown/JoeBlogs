@@ -13,11 +13,11 @@ namespace JoeBlogs
         public DateTime dateCreated;
         public string description;
         public string title;
-        public string postid;
+        public int postid;
 
-        public int[] categories;
+        public string[] categories;
 
-        public string[] mt_keywords;
+        public string mt_keywords;
 
         public override string ToString()
         {

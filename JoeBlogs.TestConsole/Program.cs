@@ -98,8 +98,8 @@ class Program
         var post = new Post()
         {
             Body = "This is a test body",
-            Categories = new int[] { 1, 2, 3 },
-            Tags = new string[] { "test" },
+            Categories = new string[] { "1", "2", "3" },
+            Tags = new string[] { "tag one", "another tag", "one more" },
             Title = "Test post",
         };
 
@@ -109,9 +109,8 @@ class Program
     {
         var post = _wpWrapper.GetPost(newPostID);
 
-
         post.Body = "Just edited the body";
-        post.Categories = new int[] { 14 };
+        post.Categories = new string[] { "14" };
         post.Tags = new string[] { "new keyword" };
         post.Title = "Changed the title";
 

@@ -209,12 +209,17 @@ namespace JoeBlogs
                     categories = input.Categories,
                     dateCreated = input.DateCreated,
                     description = input.Body,
-                    mt_keywords = input.Tags,
-                    postid = Convert.ToString(input.PostID),
+                    mt_keywords = String.Join(",",input.Tags),
+                    postid = input.PostID,
                     title = input.Title
                 };
             }
+
+          
         }
+
+      
+
 
         internal static class To
         {
@@ -256,10 +261,11 @@ namespace JoeBlogs
             {
                 return new Post
                 {
+                    PostID = input.postid,
                     Body = input.description,
                     Categories = input.categories,
                     DateCreated = input.dateCreated,
-                    Tags = input.mt_keywords,
+                    Tags = input.mt_keywords.Split(','),
                     Title = input.title
                 };
             }
