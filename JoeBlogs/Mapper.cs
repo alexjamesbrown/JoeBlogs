@@ -211,7 +211,8 @@ namespace JoeBlogs
                     description = input.Body,
                     mt_keywords = String.Join(",",input.Tags),
                     postid = input.PostID,
-                    title = input.Title
+                    title = input.Title,
+                    link = input.Link
                 };
             }
 
