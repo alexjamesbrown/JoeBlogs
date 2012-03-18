@@ -211,7 +211,8 @@ namespace JoeBlogs
                     description = input.Body,
                     mt_keywords = String.Join(",",input.Tags),
                     postid = input.PostID,
-                    title = input.Title
+                    title = input.Title,
+                    permaLink = input.Permalink
                 };
             }
 
@@ -266,7 +267,8 @@ namespace JoeBlogs
                     Categories = input.categories,
                     DateCreated = input.dateCreated,
                     Tags = input.mt_keywords.Split(','),
-                    Title = input.title
+                    Title = input.title,
+                    Permalink = input.permaLink
                 };
             }
 
