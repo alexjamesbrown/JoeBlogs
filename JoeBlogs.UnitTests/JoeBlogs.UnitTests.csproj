@@ -47,9 +47,11 @@
     <Compile Include="..\JoeBlogs\Mapper.cs">
       <Link>Mapper.cs</Link>
     </Compile>
-    <Compile Include="Mapping.cs" />
+    <Compile Include="Mapping\From.cs" />
+    <Compile Include="Mapping\General.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="wrappers\WordpressWrapperTests.cs" />
+    <Compile Include="Mapping\To.cs" />
+    <Compile Include="WordpressWrapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JoeBlogs\JoeBlogs.csproj">
