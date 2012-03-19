@@ -1,7 +1,5 @@
 ﻿using System;
-using JoeBlogs;
 using System.Reflection;
-using System.Linq;
 
 namespace JoeBlogs
 {
@@ -12,18 +10,21 @@ namespace JoeBlogs
             var propertyInfo = typeof(T)
                 .GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
 
-            propertyInfo.SetValue(obj, value);
+            if (propertyInfo != null)
+                propertyInfo.SetValue(obj, value);
         }
 
         internal static class From
         {
             internal static XmlRpcAuthor Author(Author input)
             {
-                var content = new XmlRpcAuthor();
-                content.display_name = input.DisplayName;
-                content.user_email = input.EmailAddress;
-                content.user_id = input.UserID;
-                content.user_login = input.LoginName;
+                var content = new XmlRpcAuthor
+                                  {
+                                      display_name = input.DisplayName,
+                                      user_email = input.EmailAddress,
+                                      user_id = input.UserID,
+                                      user_login = input.LoginName
+                                  };
                 return content;
             }
             internal static XmlRpcCategory Category(Category input)
@@ -131,76 +132,76 @@ namespace JoeBlogs
             }
             internal static XmlRpcPage Page(Page input)
             {
-                return new XmlRpcPage()
-                {
-                    dateCreated = input.DateCreated,
-                    description = input.Body,
-                    mt_allow_comments = input.AllowComments ? 1 : 0,
-                    mt_allow_pings = input.AllowPings ? 1 : 0,
-                    mt_excerpt = input.Excerpt,
-                    mt_text_more = input.mt_text_more,
-                    title = input.Title,
-                    wp_author_id = input.AuthorID,
-                    wp_page_order = input.PageOrder,
-                    wp_page_parent_id = input.ParentPageID,
-                    wp_password = input.Password,
-                    wp_slug = input.Slug
-                };
+                return new XmlRpcPage
+                           {
+                               dateCreated = input.DateCreated,
+                               description = input.Body,
+                               mt_allow_comments = input.AllowComments ? 1 : 0,
+                               mt_allow_pings = input.AllowPings ? 1 : 0,
+                               mt_excerpt = input.Excerpt,
+                               mt_text_more = input.mt_text_more,
+                               title = input.Title,
+                               wp_author_id = input.AuthorID,
+                               wp_page_order = input.PageOrder,
+                               wp_page_parent_id = input.ParentPageID,
+                               wp_password = input.Password,
+                               wp_slug = input.Slug
+                           };
             }
             internal static XmlRpcPageMin PageMin(PageMin input)
             {
-                return new XmlRpcPageMin()
-                {
-                    dateCreated = input.DateCreated,
-                    page_parent_id = input.ParentPageID,
-                    page_title = input.Title
-                };
+                return new XmlRpcPageMin
+                           {
+                               dateCreated = input.DateCreated,
+                               page_parent_id = input.ParentPageID,
+                               page_title = input.Title
+                           };
             }
             internal static XmlRpcPageTemplate PageTemplate(PageTemplate input)
             {
-                return new XmlRpcPageTemplate()
-                {
-                    description = input.Description,
-                    name = input.Name
-                };
+                return new XmlRpcPageTemplate
+                           {
+                               description = input.Description,
+                               name = input.Name
+                           };
             }
             internal static XmlRpcPostStatusList PostStatusList(PostStatusList input)
             {
-                return new XmlRpcPostStatusList()
-                {
-                    Status = input.Status
-                };
+                return new XmlRpcPostStatusList
+                           {
+                               Status = input.Status
+                           };
             }
             internal static XmlRpcTagInfo Tag(Tag input)
             {
-                return new XmlRpcTagInfo()
-                {
-                    count = input.Count,
-                    html_url = input.HTMLUrl,
-                    id = input.ID,
-                    name = input.Name,
-                    rss_url = input.RSSUrl,
-                    slug = input.Slug
-                };
+                return new XmlRpcTagInfo
+                           {
+                               count = input.Count,
+                               html_url = input.HTMLUrl,
+                               id = input.ID,
+                               name = input.Name,
+                               rss_url = input.RSSUrl,
+                               slug = input.Slug
+                           };
             }
             internal static XmlRpcUserBlog UserBlog(UserBlog input)
             {
-                return new XmlRpcUserBlog()
-                {
-                    blogId = input.BlogID,
-                    blogName = input.BlogName,
-                    isAdmin = input.IsAdmin,
-                    url = input.URL,
-                    xmlrpc = input.XMLRpc
-                };
+                return new XmlRpcUserBlog
+                           {
+                               blogId = input.BlogID,
+                               blogName = input.BlogName,
+                               isAdmin = input.IsAdmin,
+                               url = input.URL,
+                               xmlrpc = input.XMLRpc
+                           };
             }
             internal static XmlRpcUserInfo UserInfo(UserInfo input)
             {
-                return new XmlRpcUserInfo()
-                {
-                    blogId = input.BlogID,
+                return new XmlRpcUserInfo
+                           {
+                               blogId = input.BlogID,
 
-                };
+                           };
             }
             internal static XmlRpcPost Post(Post input)
             {
@@ -209,17 +210,17 @@ namespace JoeBlogs
                     categories = input.Categories,
                     dateCreated = input.DateCreated,
                     description = input.Body,
-                    mt_keywords = String.Join(",",input.Tags),
+                    mt_keywords = String.Join(",", input.Tags),
                     postid = input.PostID,
                     title = input.Title,
                     permaLink = input.Permalink
                 };
             }
 
-          
+
         }
 
-      
+
 
 
         internal static class To
@@ -274,51 +275,51 @@ namespace JoeBlogs
 
             internal static Page Page(XmlRpcPage input)
             {
-                var result = new Page()
-                {
-                    AllowComments = (input.mt_allow_comments == 1 ? true : false),
-                    AllowPings = (input.mt_allow_comments == 1 ? true : false),
-                    AuthorID = input.wp_author_id,
-                    Body = input.description,
-                    DateCreated = input.dateCreated,
-                    Excerpt = input.mt_excerpt,
-                    mt_text_more = input.mt_text_more,
-                    PageOrder = input.wp_page_order,
-                    ParentPageID = input.wp_page_parent_id,
-                    Password = input.wp_password,
-                    Slug = input.wp_slug,
-                    Title = input.title
-                };
+                var result = new Page
+                                 {
+                                     AllowComments = (input.mt_allow_comments == 1),
+                                     AllowPings = (input.mt_allow_comments == 1),
+                                     AuthorID = input.wp_author_id,
+                                     Body = input.description,
+                                     DateCreated = input.dateCreated,
+                                     Excerpt = input.mt_excerpt,
+                                     mt_text_more = input.mt_text_more,
+                                     PageOrder = input.wp_page_order,
+                                     ParentPageID = input.wp_page_parent_id,
+                                     Password = input.wp_password,
+                                     Slug = input.wp_slug,
+                                     Title = input.title
+                                 };
 
-                SetPrivateFieldValue<Page>("_pageID", input.page_id, result);
+                SetPrivateFieldValue("_pageID", input.page_id, result);
 
                 return result;
             }
 
             internal static Category Category(XmlRpcCategory input)
             {
-                var result = new Category()
-                {
-                    ParentCategoryID = Convert.ToInt16(input.parentId),
-                    Name = input.categoryName,
-                    Description = input.description,
-                    HtmlUrl = input.htmlUrl,
-                    RSSUrl = input.rssUrl,
-                };
+                var result = new Category
+                                 {
+                                     ParentCategoryID = Convert.ToInt16(input.parentId),
+                                     Name = input.categoryName,
+                                     Description = input.description,
+                                     HtmlUrl = input.htmlUrl,
+                                     RSSUrl = input.rssUrl,
+                                 };
 
-                SetPrivateFieldValue<Category>("_categoryID", Convert.ToInt16(input.categoryId), result);
+                SetPrivateFieldValue("_categoryID", Convert.ToInt16(input.categoryId), result);
 
                 return result;
             }
-            
+
             internal static CategoryMin CategoryMin(XmlRpcCategoryMin input)
             {
-                var result = new CategoryMin()
-                {
-                    Name = input.name,
-                };
+                var result = new CategoryMin
+                                 {
+                                     Name = input.name,
+                                 };
 
-                SetPrivateFieldValue<CategoryMin>("_categoryID", Convert.ToInt16(input.category_id), result);
+                SetPrivateFieldValue("_categoryID", Convert.ToInt16(input.category_id), result);
 
                 return result;
             }
@@ -332,7 +333,7 @@ namespace JoeBlogs
                     URL = input.url
                 };
 
-                SetPrivateFieldValue<UserBlog>("_userBlogID", input.blogId, result);
+                SetPrivateFieldValue("_userBlogID", input.blogId, result);
 
                 return result;
             }
