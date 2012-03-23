@@ -12,25 +12,16 @@ namespace JoeBlogs.Console
         public TestAllCommand()
         {
             this.IsCommand("test-all", "Tests all the things.");
-            this.HasOption("rpc=", "Url of wordpress XML-RPC endpoint (example: http://joeblogstest.alexjamesbrown.com/xmlrpc.php)", v => XmlRpcUrl = v);
-            this.HasOption("u=", "Username", v => Username = v);
-            this.HasOption("p=", "Password", v => Password = v);
+            LoginInfo.AddXmlRpcLogin(this);
         }
 
-        public string XmlRpcUrl = "http://joeblogstest.alexjamesbrown.com/xmlrpc.php";
-        public string Username = "joeblogs";
-        public string Password = "joeblogs123";
-
         JoeBlogs.IWordPressWrapper _wpWrapper;
+        LoginInfo LoginInfo = new LoginInfo();
 
         public override int Run(string[] remainingArguments)
         {
-            //remember to include the http://
-            string Url = XmlRpcUrl; //change this to the location of your xmlrpc.php file
-            //typically http://www.yourdomain.com/xmlrpc.php (if your wordpress blog is installed in root dir)
-
-            _wpWrapper = new WordPressWrapper(Url, Username, Password);
-
+            _wpWrapper = LoginInfo.GetWordPressClient();
+            
             #region Posts
             //create a new post
             var newPostID = createNewPost();
