@@ -81,6 +81,7 @@ namespace JoeBlogs.Console
 
             //add a comment to this post
             _wpWrapper.NewComment(newPostForComment, null, content, authorName, authorUrl, authorEmail);
+
             #endregion
 
             return 0;

@@ -1,3 +1,5 @@
+using ManyConsole;
+
 namespace JoeBlogs.Console
 {
     public class LoginInfo
@@ -6,7 +8,7 @@ namespace JoeBlogs.Console
         public string Username = "joeblogs";
         public string Password = "joeblogs123";
 
-        public void AddXmlRpcLogin(TestAllCommand command)
+        public void AddXmlRpcLogin(ConsoleCommand command)
         {
             command.HasOption("rpc=",
                               "Url of wordpress XML-RPC endpoint (example: http://joeblogstest.alexjamesbrown.com/xmlrpc.php)",
@@ -22,6 +24,11 @@ namespace JoeBlogs.Console
             //typically http://www.yourdomain.com/xmlrpc.php (if your wordpress blog is installed in root dir)
             var result = new WordPressWrapper(XmlRpcUrl, Username, Password);
             return result;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1} {2}", XmlRpcUrl, Username, Password);
         }
     }
 }
