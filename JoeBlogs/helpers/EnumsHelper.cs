@@ -2,7 +2,7 @@
 
 namespace JoeBlogs
 {
-    internal static class EnumsHelper
+    static public class EnumsHelper
     {
         public static string GetCommentStatusName(CommentStatus status)
         {
