@@ -12,20 +12,24 @@ namespace JoeBlogs.Console
         public TestAllCommand()
         {
             this.IsCommand("test-all", "Tests all the things.");
+            this.HasOption("rpc=", "Url of wordpress XML-RPC endpoint (example: http://joeblogstest.alexjamesbrown.com/xmlrpc.php)", v => XmlRpcUrl = v);
+            this.HasOption("u=", "Username", v => Username = v);
+            this.HasOption("p=", "Password", v => Password = v);
         }
 
-        static JoeBlogs.IWordPressWrapper _wpWrapper;
+        public string XmlRpcUrl = "http://joeblogstest.alexjamesbrown.com/xmlrpc.php";
+        public string Username = "joeblogs";
+        public string Password = "joeblogs123";
+
+        JoeBlogs.IWordPressWrapper _wpWrapper;
 
         public override int Run(string[] remainingArguments)
         {
             //remember to include the http://
-            string Url = "http://joeblogstest.alexjamesbrown.com/xmlrpc.php"; //change this to the location of your xmlrpc.php file
+            string Url = XmlRpcUrl; //change this to the location of your xmlrpc.php file
             //typically http://www.yourdomain.com/xmlrpc.php (if your wordpress blog is installed in root dir)
 
-            string User = "joeblogs"; //enter your username
-            string Password = "joeblogs123"; //enter your password
-
-            _wpWrapper = new WordPressWrapper(Url, User, Password);
+            _wpWrapper = new WordPressWrapper(Url, Username, Password);
 
             #region Posts
             //create a new post
@@ -91,7 +95,7 @@ namespace JoeBlogs.Console
             return 0;
         }
 
-        private static string createPage()
+        private string createPage()
         {
             var page = new Page
             {
@@ -106,7 +110,7 @@ namespace JoeBlogs.Console
             return newpageID;
         }
 
-        private static int createNewPost()
+        private int createNewPost()
         {
             var post = new Post()
             {
@@ -118,7 +122,7 @@ namespace JoeBlogs.Console
 
             return _wpWrapper.NewPost(post, true);
         }
-        private static void editPost(int newPostID)
+        private void editPost(int newPostID)
         {
             var post = _wpWrapper.GetPost(newPostID);
 
