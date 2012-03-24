@@ -23,7 +23,7 @@ namespace JoeBlogs.Console
 
             var results = client.GetCategories();
 
-            System.Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(results,Formatting.Indented));
+            System.Console.WriteLine(JsonConvert.SerializeObject(results,Formatting.Indented));
 
             return 0;
         }

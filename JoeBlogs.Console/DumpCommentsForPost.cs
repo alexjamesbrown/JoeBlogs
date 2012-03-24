@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ManyConsole;
+using Newtonsoft.Json;
 
 namespace JoeBlogs.Console
 {
-    public class LoadCommentsForPost : ConsoleCommand
+    public class DumpCommentsForPost : ConsoleCommand
     {
-        public LoadCommentsForPost()
+        public DumpCommentsForPost()
         {
-            this.IsCommand("load-comments", "Loads the comments for a WordPress post.");
+            this.IsCommand("dump-comments", "Dumps the comments for a WordPress post in JSON.");
             LoginInfo.AddXmlRpcLogin(this);
             this.HasRequiredOption("postid=", "The post id to load comments for.", v => PostId = Int32.Parse(v));
         }
@@ -24,17 +25,14 @@ namespace JoeBlogs.Console
 
             var posts = new List<Comment>();
 
-            foreach(var verb in new [] { "Approved", "approved", "published", "Published"})
-            {
-                posts.AddRange(client.GetComments(PostId, verb, 1, 0));
-            }
-                
+            var statuses = client.GetCommentStatusList(PostId.ToString());
 
-            foreach(var post in posts)
+            foreach(var status in statuses)
             {
-                System.Console.WriteLine(
-                    "Has post: " + post.PostTitle);
+                posts.AddRange(client.GetComments(PostId, status, 1, 0));
             }
+
+            JsonConvert.SerializeObject(posts.OrderBy(p => p.DateCreated));
 
             return 0;
         }
