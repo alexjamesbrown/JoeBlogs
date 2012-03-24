@@ -300,14 +300,14 @@ namespace JoeBlogs
             {
                 var result = new Category
                                  {
-                                     ParentCategoryID = Convert.ToInt16(input.parentId),
+                                     ParentCategoryID = Convert.ToInt32(input.parentId),
                                      Name = input.categoryName,
                                      Description = input.description,
                                      HtmlUrl = input.htmlUrl,
                                      RSSUrl = input.rssUrl,
                                  };
 
-                SetPrivateFieldValue("_categoryID", Convert.ToInt16(input.categoryId), result);
+                SetPrivateFieldValue("_categoryID", Convert.ToInt32(input.categoryId), result);
 
                 return result;
             }
