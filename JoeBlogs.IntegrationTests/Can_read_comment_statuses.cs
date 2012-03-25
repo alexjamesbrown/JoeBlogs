@@ -42,7 +42,6 @@ namespace JoeBlogs.IntegrationTests
         {
             public const string Username = "Administrator";
             public const string Password = "Password";
-            public const int PostId = 1;
 
             public FakeWordPressServer()
             {
