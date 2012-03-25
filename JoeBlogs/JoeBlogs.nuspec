@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>JoeBlongs</id>
+    <version>1.0.0.0</version>
+    <title>JoeBlogs</title>
+    <authors>Alex James Brown</authors>
+    <owners>Alex James Brown</owners>
+    <projectUrl>https://github.com/alexjamesbrown/joeblogs</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Wordpress / Metaweblog API Wrapper</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>WordPress Metaweblog</tags>
+  </metadata>
+</package>

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("JoeBlogs")]
-[assembly: AssemblyDescription("www.alexjamesbrown.com/joeblogs")]
+[assembly: AssemblyDescription("Wordpress / Metaweblog API Wrapper - https://github.com/alexjamesbrown/joeblogs")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Alex James Brown")]
 [assembly: AssemblyVersion("1.0.0.0")]
