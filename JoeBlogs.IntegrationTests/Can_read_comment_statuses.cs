@@ -35,7 +35,7 @@ namespace JoeBlogs.IntegrationTests
 
             var results = wordpressWrapper.GetCommentStatusList("1");
 
-            Assert.That(results, Is.EqualTo(new [] {"approved", "hello"}));
+            Assert.That(results, Is.EqualTo(new [] {"Unapproved", "Approved", "Spam"}));
         }
 
         public class FakeWordPressServer : NancyModule
