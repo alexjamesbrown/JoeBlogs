@@ -12,7 +12,7 @@ namespace JoeBlogs
         {
             try
             {
-                return (CommentStatus)Enum.Parse(typeof(CommentStatus), commentStatus);
+                return (CommentStatus)Enum.Parse(typeof(CommentStatus), commentStatus, true);
             }
             catch (ArgumentException)
             {

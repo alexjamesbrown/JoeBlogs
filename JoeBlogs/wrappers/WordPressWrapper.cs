@@ -217,7 +217,7 @@ namespace JoeBlogs
         {
             var result = _wrapper.GetCommentStatusList(this.BlogID, Username, Password, post_id);
 
-            return result.Values.Cast<string>().ToArray();
+            return result.Keys.Cast<string>().ToArray();
         }
 
         /// <summary>

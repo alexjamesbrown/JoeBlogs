@@ -239,7 +239,7 @@ namespace JoeBlogs
             internal static Comment Comment(XmlRpcComment input)
             {
                 ConstructorInfo ctor = typeof(Comment).GetConstructors
-                    (BindingFlags.Instance | BindingFlags.NonPublic)[0];
+                    (BindingFlags.Instance | BindingFlags.Public)[0];
 
                 var result = (Comment)ctor.Invoke(new object[] { });
 

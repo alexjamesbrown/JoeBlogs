@@ -32,7 +32,7 @@ namespace JoeBlogs.Console
                 posts.AddRange(client.GetComments(PostId, status, 1, 0));
             }
 
-            JsonConvert.SerializeObject(posts.OrderBy(p => p.DateCreated));
+            System.Console.WriteLine(JsonConvert.SerializeObject(posts.OrderBy(p => p.DateCreated), Formatting.Indented));
 
             return 0;
         }
