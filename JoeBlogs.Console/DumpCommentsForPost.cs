@@ -14,6 +14,7 @@ namespace JoeBlogs.Console
             this.IsCommand("dump-comments", "Dumps the comments for a WordPress post in JSON.");
             LoginInfo.AddXmlRpcLogin(this);
             this.HasRequiredOption("postid=", "The post id to load comments for.", v => PostId = Int32.Parse(v));
+            this.SkipsCommandSummaryBeforeRunning();
         }
 
         public LoginInfo LoginInfo = new LoginInfo();

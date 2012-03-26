@@ -13,6 +13,7 @@ namespace JoeBlogs.Console
         {
             this.IsCommand("dump-categories", "Writes categories in JSON.");
             LoginInfo.AddXmlRpcLogin(this);
+            this.SkipsCommandSummaryBeforeRunning();
         }
 
         public LoginInfo LoginInfo = new LoginInfo();
