@@ -28,7 +28,7 @@ namespace JoeBlogs.IntegrationTests
         }
 
         [Test]
-        public void Should__read_list_of_comments()
+        public void Should_return_all_comment_statuses()
         {
             var results = wordpressWrapper.GetCommentStatusList("1");
 
