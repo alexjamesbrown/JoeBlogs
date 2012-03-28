@@ -178,7 +178,7 @@ namespace JoeBlogs
                            {
                                count = input.Count,
                                html_url = input.HTMLUrl,
-                               id = input.ID,
+                               tag_id = input.ID,
                                name = input.Name,
                                rss_url = input.RSSUrl,
                                slug = input.Slug
@@ -391,9 +391,9 @@ namespace JoeBlogs
             {
                 return new Tag
                 {
+                    ID = input.tag_id,
                     Count = input.count,
                     HTMLUrl = input.html_url,
-                    ID = input.id,
                     Name = input.name,
                     RSSUrl = input.rss_url,
                     Slug = input.slug

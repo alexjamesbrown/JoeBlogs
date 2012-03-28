@@ -56,7 +56,6 @@
     <Compile Include="Can_read_Tags.cs" />
     <Compile Include="FakeWordPressServer.cs" />
     <Compile Include="TestWithFakeServer.cs" />
-    <Compile Include="WordpressWrapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
