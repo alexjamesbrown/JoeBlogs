@@ -35,14 +35,14 @@ namespace JoeBlogs.IntegrationTests
         [Test]
         public void Should_read_all_tag_fields()
         {
-            Tag results = wordpressWrapper.GetTags().Single();
+            Tag tag = wordpressWrapper.GetTags().Single();
 
-            Assert.That(results.ID, Is.EqualTo("52340"));
-            Assert.That(results.Name, Is.EqualTo("yay"));
-            Assert.That(results.Count, Is.EqualTo("4"));
-            Assert.That(results.Slug, Is.EqualTo("yay-slug"));
-            Assert.That(results.HTMLUrl, Is.EqualTo("http://icanhascheezburger.com/tag/yay/"));
-            Assert.That(results.RSSUrl, Is.EqualTo("http://icanhascheezburger.com/tag/yay/feed/"));
+            Assert.That(tag.ID, Is.EqualTo("52340"));
+            Assert.That(tag.Name, Is.EqualTo("yay"));
+            Assert.That(tag.Count, Is.EqualTo("4"));
+            Assert.That(tag.Slug, Is.EqualTo("yay-slug"));
+            Assert.That(tag.HTMLUrl, Is.EqualTo("http://icanhascheezburger.com/tag/yay/"));
+            Assert.That(tag.RSSUrl, Is.EqualTo("http://icanhascheezburger.com/tag/yay/feed/"));
         }
     }
 }
