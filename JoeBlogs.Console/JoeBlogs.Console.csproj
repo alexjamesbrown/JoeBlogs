@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="DumpCategories.cs" />
     <Compile Include="DumpCommentsForPost.cs" />
+    <Compile Include="DumpPost.cs" />
     <Compile Include="DumpTags.cs" />
     <Compile Include="LoginInfo.cs" />
     <Compile Include="Program.cs" />
