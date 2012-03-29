@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Can_read_Categories.cs" />
     <Compile Include="Can_read_comment_statuses.cs" />
+    <Compile Include="Can_read_posts.cs" />
     <Compile Include="Can_read_Tags.cs" />
     <Compile Include="FakeWordPressServer.cs" />
     <Compile Include="TestWithFakeServer.cs" />
