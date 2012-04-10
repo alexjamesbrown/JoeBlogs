@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CookComputing.XmlRpc;
 using JoeBlogs.XmlRpcInterfaces;
 
@@ -214,7 +215,9 @@ namespace JoeBlogs
         /// <returns></returns>
         public IEnumerable<string> GetCommentStatusList(string post_id)
         {
-            return _wrapper.GetCommentStatusList(this.BlogID, Username, Password, post_id);
+            var result = _wrapper.GetCommentStatusList(this.BlogID, Username, Password, post_id);
+
+            return result.Keys.Cast<string>().ToArray();
         }
 
         /// <summary>

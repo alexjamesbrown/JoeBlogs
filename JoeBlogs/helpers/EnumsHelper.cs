@@ -2,7 +2,7 @@
 
 namespace JoeBlogs
 {
-    internal static class EnumsHelper
+    static public class EnumsHelper
     {
         public static string GetCommentStatusName(CommentStatus status)
         {
@@ -12,7 +12,7 @@ namespace JoeBlogs
         {
             try
             {
-                return (CommentStatus)Enum.Parse(typeof(CommentStatus), commentStatus);
+                return (CommentStatus)Enum.Parse(typeof(CommentStatus), commentStatus, true);
             }
             catch (ArgumentException)
             {
