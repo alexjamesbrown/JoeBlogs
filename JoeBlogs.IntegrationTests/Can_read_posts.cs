@@ -84,6 +84,7 @@ namespace JoeBlogs.IntegrationTests
 
             Assert.That(post.dateCreated.Minute, Is.EqualTo(45));
             Assert.That(post.userid, Is.EqualTo("1108390"));
+            Assert.That(post.custom_fields.Single(f => f.key == "assetid").value, Is.EqualTo("6029537536"));
         }
     }
 }
