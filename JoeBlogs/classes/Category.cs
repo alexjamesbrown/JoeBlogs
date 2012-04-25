@@ -11,9 +11,9 @@ namespace JoeBlogs
 
     public class Category
     {
-        private int _categoryID;
-        public int CategoryID { get { return _categoryID; } }
-        public int ParentCategoryID { get; set; }
+        private long _categoryID;
+        public long CategoryID { get { return _categoryID; } }
+        public long ParentCategoryID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string HtmlUrl { get; set; }

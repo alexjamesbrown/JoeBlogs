@@ -50,6 +50,11 @@ namespace JoeBlogs
             return Map.To.Post(_wrapper.GetPost(postID, Username, Password));
         }
 
+        public virtual XmlRpcPost GetPostRaw(int postID)
+        {
+            return _wrapper.GetPost(postID, Username, Password);
+        }
+
         /// <summary> 
         /// Returns the list of categories that have been used in the blog. 
         /// </summary> 

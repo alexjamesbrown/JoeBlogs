@@ -178,7 +178,7 @@ namespace JoeBlogs
                            {
                                count = input.Count,
                                html_url = input.HTMLUrl,
-                               id = input.ID,
+                               tag_id = input.ID,
                                name = input.Name,
                                rss_url = input.RSSUrl,
                                slug = input.Slug
@@ -239,7 +239,7 @@ namespace JoeBlogs
             internal static Comment Comment(XmlRpcComment input)
             {
                 ConstructorInfo ctor = typeof(Comment).GetConstructors
-                    (BindingFlags.Instance | BindingFlags.NonPublic)[0];
+                    (BindingFlags.Instance | BindingFlags.Public)[0];
 
                 var result = (Comment)ctor.Invoke(new object[] { });
 
@@ -300,14 +300,14 @@ namespace JoeBlogs
             {
                 var result = new Category
                                  {
-                                     ParentCategoryID = Convert.ToInt16(input.parentId),
+                                     ParentCategoryID = Convert.ToInt32(input.parentId),
                                      Name = input.categoryName,
                                      Description = input.description,
                                      HtmlUrl = input.htmlUrl,
                                      RSSUrl = input.rssUrl,
                                  };
 
-                SetPrivateFieldValue("_categoryID", Convert.ToInt16(input.categoryId), result);
+                SetPrivateFieldValue("_categoryID", Convert.ToInt32(input.categoryId), result);
 
                 return result;
             }
@@ -391,9 +391,9 @@ namespace JoeBlogs
             {
                 return new Tag
                 {
+                    ID = input.tag_id,
                     Count = input.count,
                     HTMLUrl = input.html_url,
-                    ID = input.id,
                     Name = input.name,
                     RSSUrl = input.rss_url,
                     Slug = input.slug
