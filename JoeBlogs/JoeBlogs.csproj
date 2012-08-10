@@ -80,6 +80,7 @@
     <Compile Include="classes\UserBlog.cs" />
     <Compile Include="classes\UserInfo.cs" />
     <Compile Include="helpers\EnumsHelper.cs" />
+    <Compile Include="helpers\FileSystemHelper.cs" />
     <Compile Include="helpers\ImagesUtility.cs" />
     <Compile Include="helpers\StringExtensionMethods.cs" />
     <Compile Include="Mapper.cs" />

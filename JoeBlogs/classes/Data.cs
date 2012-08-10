@@ -7,7 +7,7 @@
 	{
         public string Name { get; set; }
         public string Type { get; set; }
-        public string Base64 { get; set; }
+        public byte[] Bits { get; set; }
         public bool Overwrite { get; set; }
 	}
 }

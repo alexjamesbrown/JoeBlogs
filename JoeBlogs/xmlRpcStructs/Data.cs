@@ -11,7 +11,7 @@ namespace JoeBlogs
 	{
 		public string name;
 		public string type;
-		public string base64;
+		public byte[] bits;
 		public bool overwrite;
 	}
 }
