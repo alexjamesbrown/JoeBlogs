@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CookComputing.XmlRpc;
 using JoeBlogs.XmlRpcInterfaces;
+using JoeBlogs.helpers;
 
 namespace JoeBlogs
 {
@@ -385,6 +386,24 @@ namespace JoeBlogs
         }
 
         /// <summary>
+        /// Uploads a file to wordpress
+        /// </summary>
+        /// <param name="FileToUpload">Full path to file</param>
+        /// <param name="WordpressName">Name that the file will get in wordpress</param>
+        /// <param name="Owerwrite">If it exists owerwrite</param>
+        /// <param name="MimeType">image/jpeg etc...</param>    
+        public File UploadFile(string FileToUpload, string WordpressName, bool Owerwrite, string MimeType)
+        {
+            return(UploadFile(new Data()
+            {
+                Bits = FileSystemHelper.GetFileBytes(FileToUpload),
+                Name = WordpressName,
+                Overwrite = Owerwrite,
+                Type = MimeType
+            }));            
+        }
+
+        /// <summary>
         /// Gets a comment, given it's comment ID. Note that this only works for WordPress version 2.6.1 or higher.
         /// </summary>
         /// <param name="comment_id"></param>
@@ -433,5 +452,7 @@ namespace JoeBlogs
         {
             _wrapper = null;
         }
+
+        
     }
 }
