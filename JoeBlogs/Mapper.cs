@@ -91,7 +91,7 @@ namespace JoeBlogs
             {
                 return new XmlRpcData
                 {
-                    base64 = input.Base64,
+                    bits = input.Bits,
                     name = input.Name,
                     overwrite = input.Overwrite,
                     type = input.Type
