@@ -296,6 +296,11 @@ namespace JoeBlogs
             return _wrapper.EditPage(BlogID, Username, Password, pageID, content);
         }
 
+        public virtual bool EditPost(int postID, Post content, bool publish)
+        {
+            return _wrapper.EditPost(postID, Username, Password, Map.From.Post(content), publish);
+        }
+
         /// <summary>
         /// Get an array of users for the blog.
         /// </summary>

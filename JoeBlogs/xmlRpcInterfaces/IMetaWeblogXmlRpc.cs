@@ -18,18 +18,6 @@ namespace JoeBlogs.XmlRpcInterfaces
         bool DeletePost(string appKey, string postid, string username, string password, bool publish);
 
         /// <summary>
-        /// Edits the post.
-        /// </summary>
-        /// <param name="postid">The postid.</param>
-        /// <param name="username">The username.</param>
-        /// <param name="password">The password.</param>
-        /// <param name="content">The content.</param>
-        /// <param name="publish">if set to <c>true</c> [publish].</param>
-        /// <returns></returns>
-        [XmlRpcMethod("metaWeblog.editPost")]
-        bool EditPost(int postid, string username, string password, XmlRpcPost content, bool publish);
-
-        /// <summary>
         /// Gets the categories.
         /// </summary>
         /// <param name="blogid">The blogid.</param>

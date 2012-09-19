@@ -77,6 +77,7 @@
     <Compile Include="classes\Post.cs" />
     <Compile Include="classes\PostStatusList.cs" />
     <Compile Include="classes\TagInfo.cs" />
+    <Compile Include="classes\Term.cs" />
     <Compile Include="classes\UserBlog.cs" />
     <Compile Include="classes\UserInfo.cs" />
     <Compile Include="helpers\EnumsHelper.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="xmlRpcStructs\PostStatusList.cs" />
     <Compile Include="xmlRpcStructs\RecentPost.cs" />
     <Compile Include="xmlRpcStructs\TagInfo.cs" />
+    <Compile Include="xmlRpcStructs\Term.cs" />
     <Compile Include="xmlRpcStructs\UserBlog.cs" />
     <Compile Include="xmlRpcStructs\UserInfo.cs" />
   </ItemGroup>
@@ -134,7 +136,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

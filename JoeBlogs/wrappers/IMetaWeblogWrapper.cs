@@ -4,8 +4,7 @@ namespace JoeBlogs
 {
     public interface IMetaWeblogWrapper
     {
-        bool DeletePost(int postid);
-        bool EditPost(int postID, Post content, bool publish);
+        bool DeletePost(int postid);        
         IEnumerable<Category> GetCategories();
         JoeBlogs.Post GetPost(int postID);
         IEnumerable<Post> GetRecentPosts(int numberOfPosts);

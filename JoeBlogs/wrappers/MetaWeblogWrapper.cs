@@ -40,11 +40,6 @@ namespace JoeBlogs
             return Convert.ToInt32(_wrapper.NewPost(this.BlogID, Username, Password, content, publish));
         }
 
-        public virtual bool EditPost(int postID, Post content, bool publish)
-        {
-            return _wrapper.EditPost(postID, Username, Password, Map.From.Post(content), publish);
-        }
-
         public virtual Post GetPost(int postID)
         {
             return Map.To.Post(_wrapper.GetPost(postID, Username, Password));
