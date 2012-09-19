@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Linq;
 
 namespace JoeBlogs
 {
@@ -210,14 +211,24 @@ namespace JoeBlogs
                     categories = input.Categories,
                     dateCreated = input.DateCreated,
                     description = input.Body,
-                    mt_keywords = String.Join(",", input.Tags),
+                    mt_keywords = input.Tags == null ? null : String.Join(",", input.Tags),
                     postid = input.PostID,
                     title = input.Title,
-                    permaLink = input.Permalink
+                    permaLink = input.Permalink,
+                    post_type = input.PostType,
+                    custom_fields = input.CustomFields == null ? null : input.CustomFields.Select(cf => new XmlRpcCustomField()
+                    {
+                        id = cf.ID,
+                        key = cf.Key,
+                        value = cf.Value
+                    }).ToArray(),
+                    terms = input.Terms == null ? null : input.Terms.Select(t => new XmlRpcTerm()
+                    {
+                        taxonomy = t.Taxonomy,
+                        terms = t.Terms
+                    }).ToArray()
                 };
             }
-
-
         }
 
 
@@ -269,7 +280,45 @@ namespace JoeBlogs
                     DateCreated = input.dateCreated,
                     Tags = input.mt_keywords.Split(','),
                     Title = input.title,
-                    Permalink = input.permaLink
+                    Permalink = input.permaLink,
+                    PostType = input.post_type,
+                    CustomFields = input.custom_fields == null ? null : input.custom_fields.Select(cf => new CustomField()
+                    {
+                        ID = cf.id,
+                        Key = cf.key,
+                        Value = cf.value
+                    }).ToArray(),
+                    Terms = input.terms == null ? null : input.terms.Select(t => new Term()
+                    {
+                        Taxonomy = t.taxonomy,
+                        Terms = t.terms
+                    }).ToArray()
+                };
+            }
+
+            internal static Post Post(XmlRpcRecentPost input)
+            {
+                return new Post
+                {
+                    PostID = Convert.ToInt32(input.postid),
+                    Body = input.description,
+                    Categories = input.categories,
+                    DateCreated = input.dateCreated,
+                    Tags = input.mt_keywords.Split(','),
+                    Title = input.title,
+                    Permalink = input.permaLink,
+                    PostType = input.post_type,
+                    CustomFields = input.custom_fields == null ? null : input.custom_fields.Select(cf => new CustomField()
+                    {
+                        ID = cf.id,
+                        Key = cf.key,
+                        Value = cf.value
+                    }).ToArray(),
+                    Terms = input.terms == null ? null : input.terms.Select(t => new Term()
+                    {
+                        Taxonomy = t.taxonomy,
+                        Terms = t.terms
+                    }).ToArray()
                 };
             }
 

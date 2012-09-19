@@ -5,7 +5,7 @@ namespace JoeBlogs
 {
     /// <summary> 
     /// This struct represents the information about a post that could be returned by the 
-    /// EditPost(), GetRecentPosts() and GetPost() methods. 
+    /// EditPost() and GetPost() methods. 
     /// </summary> 
     [XmlRpcMissingMapping(MappingAction.Ignore)]
     public struct XmlRpcPost
@@ -30,15 +30,10 @@ namespace JoeBlogs
         public string wp_author_id;
         public string wp_author_display_name;
         public string post_status;
+        public string post_type;
 
-        public CustomField[] custom_fields;
-
-        public class CustomField
-        {
-            public string id;
-            public string key;
-            public string value;
-        }
+        public XmlRpcCustomField[] custom_fields;
+        public XmlRpcTerm[] terms;
 
         public override string ToString()
         {

@@ -9,6 +9,7 @@ namespace JoeBlogs
         bool DeleteComment(string comment_id);
         bool DeletePage(string pageID);
         bool EditComment(string comment_id, CommentStatus status, DateTime date_created_gmt, string content, string author, string author_url, string author_email);
+        bool EditPost(int postID, Post content, bool publish);
         bool EditPage(int pageID, Page editedPage);
         IEnumerable<Author> GetAuthors();
         Comment GetComment(string comment_id);
