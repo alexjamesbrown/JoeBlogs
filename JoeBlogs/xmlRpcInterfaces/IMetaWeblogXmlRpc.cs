@@ -48,7 +48,7 @@ namespace JoeBlogs.XmlRpcInterfaces
         /// <param name="numberOfPosts">The number of posts.</param>
         /// <returns></returns>
         [XmlRpcMethod("metaWeblog.getRecentPosts")]
-        XmlRpcPost[] GetRecentPosts(int blogId, string username, string password, int numberOfPosts);
+        XmlRpcRecentPost[] GetRecentPosts(int blogId, string username, string password, int numberOfPosts);
 
         /// <summary>
         /// Gets the user info.

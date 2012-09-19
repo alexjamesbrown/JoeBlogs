@@ -111,6 +111,7 @@
     <Compile Include="xmlRpcStructs\PageTemplate.cs" />
     <Compile Include="xmlRpcStructs\Post.cs" />
     <Compile Include="xmlRpcStructs\PostStatusList.cs" />
+    <Compile Include="xmlRpcStructs\RecentPost.cs" />
     <Compile Include="xmlRpcStructs\TagInfo.cs" />
     <Compile Include="xmlRpcStructs\UserBlog.cs" />
     <Compile Include="xmlRpcStructs\UserInfo.cs" />

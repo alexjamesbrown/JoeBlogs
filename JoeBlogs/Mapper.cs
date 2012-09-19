@@ -273,6 +273,20 @@ namespace JoeBlogs
                 };
             }
 
+            internal static Post Post(XmlRpcRecentPost input)
+            {
+                return new Post
+                {
+                    PostID = Convert.ToInt32(input.postid),
+                    Body = input.description,
+                    Categories = input.categories,
+                    DateCreated = input.dateCreated,
+                    Tags = input.mt_keywords.Split(','),
+                    Title = input.title,
+                    Permalink = input.permaLink
+                };
+            }
+
             internal static Page Page(XmlRpcPage input)
             {
                 var result = new Page
