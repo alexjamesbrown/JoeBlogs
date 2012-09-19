@@ -210,7 +210,7 @@ namespace JoeBlogs
                     categories = input.Categories,
                     dateCreated = input.DateCreated,
                     description = input.Body,
-                    mt_keywords = String.Join(",", input.Tags),
+                    mt_keywords = input.Tags == null ? null : String.Join(",", input.Tags),
                     postid = input.PostID,
                     title = input.Title,
                     permaLink = input.Permalink
