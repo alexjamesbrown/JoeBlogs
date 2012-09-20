@@ -18,6 +18,9 @@ namespace JoeBlogs
         public string Permalink { get; set; }
         public string[] Categories { get; set; }
         public string[] Tags { get; set; }
+        public CustomField[] CustomFields { get; set; }
+        public Term[] Terms { get; set; }
+        public string PostType { get; set; }
 
         public override string ToString()
         {
