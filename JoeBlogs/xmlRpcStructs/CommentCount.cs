@@ -10,9 +10,9 @@ namespace JoeBlogs
 	[XmlRpcMissingMapping(MappingAction.Ignore)]
     public struct XmlRpcCommentCount
 	{
-		public int approved; //i think this maybe an error on WP part - should be int according to their documentation: http://codex.wordpress.org/XML-RPC#wp.getCommentCount
-		public int awaiting_moderation;
-		public int spam;
-		public int total_comments;
+		public object approved; //i think this maybe an error on WP part - should be int according to their documentation: http://codex.wordpress.org/XML-RPC#wp.getCommentCount
+		public object awaiting_moderation;
+		public object spam;
+		public object total_comments;
 	}
 }
