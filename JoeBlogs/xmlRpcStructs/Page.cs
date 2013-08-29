@@ -14,7 +14,7 @@ namespace JoeBlogs
         public string wp_password;
         public int wp_page_parent_id;
         public int wp_page_order;
-        public int wp_author_id;
+        public string wp_author_id;
         public string title;
         public string description;
         public string mt_excerpt;
