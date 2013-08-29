@@ -142,7 +142,7 @@ namespace JoeBlogs
                                mt_excerpt = input.Excerpt,
                                mt_text_more = input.mt_text_more,
                                title = input.Title,
-                               wp_author_id = input.AuthorID,
+                               wp_author_id = input.AuthorID.ToString(),
                                wp_page_order = input.PageOrder,
                                wp_page_parent_id = input.ParentPageID,
                                wp_password = input.Password,
@@ -328,7 +328,7 @@ namespace JoeBlogs
                                  {
                                      AllowComments = (input.mt_allow_comments == 1),
                                      AllowPings = (input.mt_allow_comments == 1),
-                                     AuthorID = input.wp_author_id,
+                                     AuthorID = Convert.ToInt32(input.wp_author_id),
                                      Body = input.description,
                                      DateCreated = input.dateCreated,
                                      Excerpt = input.mt_excerpt,
