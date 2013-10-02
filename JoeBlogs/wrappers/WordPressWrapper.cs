@@ -288,12 +288,11 @@ namespace JoeBlogs
         /// <summary>
         /// Make changes to a blog page.
         /// </summary>
-        /// <param name="page"></param>
         /// <returns></returns>
-        public bool EditPage(int pageID, Page editedPage)
+        public bool EditPage(int pageID, Page editedPage, bool publish)
         {
             var content = Map.From.Page(editedPage);
-            return _wrapper.EditPage(BlogID, pageID, Username, Password, content);
+            return _wrapper.EditPage(BlogID, pageID, Username, Password, content, publish);
         }
 
         public virtual bool EditPost(int postID, Post content, bool publish)
