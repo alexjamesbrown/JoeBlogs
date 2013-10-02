@@ -6,8 +6,8 @@ namespace JoeBlogs
     {
         public Post()
         {
-            DateCreated = DateTime
-                .Now;
+            DateCreated = DateTime.Now;
+            CommentsEnabled = true;
         }
 
         public int PostID { get; set; }
@@ -21,6 +21,7 @@ namespace JoeBlogs
         public CustomField[] CustomFields { get; set; }
         public Term[] Terms { get; set; }
         public string PostType { get; set; }
+        public bool CommentsEnabled { get; set; }
 
         public override string ToString()
         {
