@@ -293,7 +293,7 @@ namespace JoeBlogs
         public bool EditPage(int pageID, Page editedPage)
         {
             var content = Map.From.Page(editedPage);
-            return _wrapper.EditPage(BlogID, Username, Password, pageID, content);
+            return _wrapper.EditPage(BlogID, pageID, Username, Password, content);
         }
 
         public virtual bool EditPost(int postID, Post content, bool publish)

@@ -81,7 +81,7 @@ namespace JoeBlogs.XmlRpcInterfaces
         bool DeletePage(int blogId, string username, string password, string page_id);
 
         [XmlRpcMethod("wp.editPage")]
-        bool EditPage(int blogId, string username, string password, int page_id, XmlRpcPage content);
+        bool EditPage(int blogId, int page_id, string username, string password, XmlRpcPage content);
 
         [XmlRpcMethod("wp.editPost")]
         bool EditPost(int postid, string username, string password, XmlRpcPost content, bool publish);
