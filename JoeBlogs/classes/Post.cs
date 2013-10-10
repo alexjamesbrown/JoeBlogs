@@ -22,6 +22,8 @@ namespace JoeBlogs
         public Term[] Terms { get; set; }
         public string PostType { get; set; }
         public bool CommentsEnabled { get; set; }
+        public string Slug { get; set; }
+
 
         public override string ToString()
         {

@@ -215,6 +215,7 @@ namespace JoeBlogs
                     postid = input.PostID,
                     title = input.Title,
                     permaLink = input.Permalink,
+                    wp_slug = input.Slug,
                     post_type = input.PostType,
                     mt_allow_comments = input.CommentsEnabled ? "open" : "closed",
                     custom_fields = input.CustomFields == null ? null : input.CustomFields.Select(cf => new XmlRpcCustomField()
